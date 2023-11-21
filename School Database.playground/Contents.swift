@@ -101,12 +101,14 @@ struct School {
     }
 
     func getTeacher(withID id: Int) -> Teacher? {
-        func findTeacherById(teacher: Teacher) -> Bool {
-            return teacher.id == id
+        for teacher in teachers {
+            if teacher.id == id {
+                return teacher
+            }
         }
-        
-        return teachers.first(where: findTeacherById)
+        return nil
     }
+
 
    
     func printFavoriteTeacherInfo(for student: Student) {
